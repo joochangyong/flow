@@ -1,6 +1,7 @@
 package com.project.flow.controller;
 
 import com.project.flow.service.FixService;
+import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
@@ -18,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 public class FixController {
   private final FixService fixService;
 
-  // 고정확장자List 가져오기
+  @ApiOperation(value = "고정확장자List 가져오기")
   @GetMapping()
   public ResponseEntity<Object> findAll() {
     try {
@@ -32,7 +33,7 @@ public class FixController {
     }
   }
 
-  // 고정확장자 state값 변경
+  @ApiOperation(value = "고정확장자 state값 변경")
   @PutMapping()
   public ResponseEntity<Object> update(@RequestParam(value = "idx") int idx) {
     try {
