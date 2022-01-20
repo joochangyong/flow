@@ -26,7 +26,7 @@ public class FixService {
   public List<Fix> findAll() {
     List<Fix> fixList = fixRepository.findAll();
     if(fixList.isEmpty()) {
-      throw new NullPointerException("데이터 없음");
+      throw new NullPointerException();
     }
     return fixList;
   }

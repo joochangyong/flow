@@ -25,8 +25,8 @@ public class FixController {
     try {
       return new ResponseEntity<Object>(fixService.findAll(), HttpStatus.OK);
     } catch (NullPointerException e) {
-      log.error(e);
-      return new ResponseEntity<Object>(HttpStatus.NOT_FOUND);
+      log.error("데이터 없음");
+      return new ResponseEntity<Object>("데이터 없음", HttpStatus.NOT_FOUND);
     } catch (Exception e) {
       log.error(e);
       return new ResponseEntity<Object>(HttpStatus.INTERNAL_SERVER_ERROR);
