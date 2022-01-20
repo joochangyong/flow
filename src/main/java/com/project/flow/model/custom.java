@@ -14,7 +14,7 @@ import javax.persistence.*;
 @Entity
 @Table(name="custom")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class custom {
+public class Custom {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "idx", nullable = false, unique = true)

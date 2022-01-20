@@ -14,16 +14,16 @@ import javax.persistence.*;
 @Entity
 @Table(name="fix")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class fix {
+public class Fix {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "idx", nullable = false, unique = true)
-  private Integer idx;
+  private int idx;
 
   @Column(name = "name", nullable = false, unique = true)
   private String name;
 
-  @Column(name = "check", nullable = false)
-  private boolean check;
+  @Column(name = "state", nullable = false)
+  private int state;
 }

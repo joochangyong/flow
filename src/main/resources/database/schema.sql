@@ -3,7 +3,7 @@ CREATE TABLE fix
 (
     `idx`       INT            NOT NULL    AUTO_INCREMENT,
     `name`      VARCHAR(20)    NOT NULL    ,
-    `check`     TINYINT        NOT NULL    DEFAULT 0,
+    `state`     INT        NOT NULL    DEFAULT 0,
     CONSTRAINT PK_fix PRIMARY KEY (idx)
 );
 
