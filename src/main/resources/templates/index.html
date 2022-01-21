@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/script/index.js" ></script>
+  <title>Flow 과제</title>
+</head>
+
+<body>
+  <hr>
+  <h1>◎ 파일 확장자 차단</h1>
+  <hr style="height: 3px; background-color: black;">
+  <p style="font-size: 20px">파일확장자에 따라 특정 형식의 파일을 첨주하거나 전송하지 못하도록 제한</p>
+  <div style="flex-direction: row">
+    고정 확장자
+    <div id="fix"></div>
+  </div>
+  <br>
+  <div style="flex-direction: row">
+    커스텀 확장자
+    <input type="text" id="name" maxlength="20" placeholder="확장자 입력" >
+    <button onclick="customAdd()">+추가</button>
+    <div class="box">
+      <div id="count">dd</div>
+      <br>
+      <div id="list">dd</div>
+    </div>
+  </div>
+</body>
+</html>
+
+<style>
+  .box {
+      border:1px solid;
+      border-radius: 10px;
+      width: 20%;
+      height: 200px;
+      margin-left: 107px;
+      margin-top: 10px;
+  }
+</style>
