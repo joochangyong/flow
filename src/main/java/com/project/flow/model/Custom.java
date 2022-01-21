@@ -15,10 +15,11 @@ import javax.persistence.*;
 @Table(name="custom")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Custom {
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "idx", nullable = false, unique = true)
-  private Integer idx;
+  private int idx;
 
   @Column(name = "extensions", nullable = false, unique = true)
   private String extensions;

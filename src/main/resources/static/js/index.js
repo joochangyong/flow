@@ -67,6 +67,7 @@ function customAdd(){
       data : JSON.stringify(data),
       success: function(){
         window.location.reload()
+        alert("추가되었습니다.");
       },
       error:function(err){
         if(err.responseText == "중복된 확장자") {

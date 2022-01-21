@@ -25,9 +25,6 @@ public class FixService {
   @Transactional
   public List<Fix> findAll() {
     List<Fix> fixList = fixRepository.findAll();
-    if(fixList.isEmpty()) {
-      throw new NullPointerException();
-    }
     return fixList;
   }
 

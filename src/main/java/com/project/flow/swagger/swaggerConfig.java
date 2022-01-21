@@ -20,7 +20,7 @@ public class swaggerConfig {
             .apis(RequestHandlerSelectors.basePackage("com.project.flow"))
             .paths(PathSelectors.ant("/api/**"))
             .build()
-            .groupName("flow")
+            .groupName("Flow")
             .apiInfo(apiInfo()) ;
   }
 
