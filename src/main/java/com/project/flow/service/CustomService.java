@@ -29,9 +29,6 @@ public class CustomService {
   @Transactional
   public List<Custom> findAll() {
     List<Custom> customList = customRepository.findAll();
-    if(customList.isEmpty()) {
-      throw new NullPointerException();
-    }
     return customList;
   }
 
@@ -50,6 +47,10 @@ public class CustomService {
       if(fix.getExtensions().equals(custom.getExtensions())) {
         throw new DuplicateRequestException();
       }
+    }
+    // 입력 길이 20자리제한
+    if(custom.getExtensions().length() > 20) {
+      throw new IllegalArgumentException();
     }
     // 개수 체크
     if(customList.size() > 199) {
