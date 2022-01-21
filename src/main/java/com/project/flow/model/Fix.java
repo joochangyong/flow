@@ -3,6 +3,7 @@ package com.project.flow.model;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 
@@ -25,5 +26,6 @@ public class Fix {
   private String extensions;
 
   @Column(name = "state", nullable = false)
+  @ColumnDefault("0")
   private int state;
 }
