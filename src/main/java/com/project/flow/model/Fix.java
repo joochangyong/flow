@@ -21,8 +21,8 @@ public class Fix {
   @Column(name = "idx", nullable = false, unique = true)
   private int idx;
 
-  @Column(name = "name", nullable = false, unique = true)
-  private String name;
+  @Column(name = "extensions", nullable = false, unique = true)
+  private String extensions;
 
   @Column(name = "state", nullable = false)
   private int state;

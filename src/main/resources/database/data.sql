@@ -1,3 +1,3 @@
 INSERT INTO fix
-(name)
+(extensions)
 VALUES('bat'), ('cmd'), ('com'), ('cpl'), ('exe'), ('scr'), ('js');

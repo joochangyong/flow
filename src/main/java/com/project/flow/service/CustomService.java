@@ -1,7 +1,9 @@
 package com.project.flow.service;
 
 import com.project.flow.model.Custom;
+import com.project.flow.model.Fix;
 import com.project.flow.repository.CustomRepository;
+import com.project.flow.repository.FixRepository;
 import com.sun.jdi.request.DuplicateRequestException;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -21,6 +23,7 @@ import java.util.Optional;
 @Log4j2
 public class CustomService {
   private final CustomRepository customRepository;
+  private final FixRepository fixRepository;
 
   // 커스텀확장자List 가져오기
   @Transactional
@@ -36,15 +39,17 @@ public class CustomService {
   @Transactional
   public Custom create(Custom custom) {
     List<Custom> customList = customRepository.findAll();
+    List<Fix> fixList = fixRepository.findAll();
     // 중복 체크
     for(Custom customs : customList) {
-      if(customs.getName().equals(custom.getName())) {
+      if(customs.getExtensions().equals(custom.getExtensions())) {
         throw new DuplicateRequestException();
       }
     }
-    // 입력 길이 20자리제한
-    if(custom.getName().length() > 20) {
-      throw new IllegalArgumentException();
+    for(Fix fix : fixList) {
+      if(fix.getExtensions().equals(custom.getExtensions())) {
+        throw new DuplicateRequestException();
+      }
     }
     // 개수 체크
     if(customList.size() > 199) {

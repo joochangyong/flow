@@ -43,11 +43,7 @@ public class CustomController {
     } catch (DuplicateRequestException e) {
       log.error("중복된 확장자");
       return new ResponseEntity<Object>("중복된 확장자", HttpStatus.CONFLICT);
-    } catch (IllegalArgumentException e) {
-      log.error("입력 길이 20자리 초과");
-      return new ResponseEntity<Object>("입력 길이 20자리 초과", HttpStatus.CONFLICT);
-    }
-    catch (ArrayIndexOutOfBoundsException e) {
+    } catch (ArrayIndexOutOfBoundsException e) {
       log.error("200개 초과");
       return new ResponseEntity<Object>("200개 초과", HttpStatus.CONFLICT);
     } catch (Exception e) {
