@@ -31,7 +31,7 @@ $(document).ready(function(){
       }
     },
     error:function(err){
-      alert(err);
+      console.log(err.responseText)
     }
   })
 });
@@ -71,8 +71,10 @@ function customAdd(){
       error:function(err){
         if(err.responseText == "중복된 확장자") {
           alert("이미 등록되어있는 확장자 입니다.");
+        } else if(err.responseText == "길이 초과") {
+          alert("20자를 초과할 수 없습니다.");
         } else if(err.responseText == "200개 초과") {
-          alert("확장자는 200개를 초과할 수 없습니다.");
+          alert("커스텀 확장자는 200개를 초과할 수 없습니다.");
         } else {
           alert(err);
         }
@@ -90,8 +92,8 @@ function deleteItem(event){
       idx:event.target.id
     },
     success : function (){
-      alert("삭제되었습니다.");
       window.location.reload()
+      alert("삭제되었습니다.");
     },
     error:function (err){
       alert(err);

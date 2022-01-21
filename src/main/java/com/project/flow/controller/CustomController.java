@@ -26,9 +26,6 @@ public class CustomController {
   public ResponseEntity<Object> findAll() {
     try {
       return new ResponseEntity<Object>(customService.findAll(), HttpStatus.OK);
-    } catch (NullPointerException e) {
-      log.error("데이터 없음");
-      return new ResponseEntity<Object>("데이터 없음", HttpStatus.NOT_FOUND);
     } catch (Exception e) {
       log.error(e);
       return new ResponseEntity<Object>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -43,6 +40,9 @@ public class CustomController {
     } catch (DuplicateRequestException e) {
       log.error("중복된 확장자");
       return new ResponseEntity<Object>("중복된 확장자", HttpStatus.CONFLICT);
+    } catch (IllegalArgumentException e) {
+      log.error("길이 초과");
+      return new ResponseEntity<Object>("길이 초과", HttpStatus.CONFLICT);
     } catch (ArrayIndexOutOfBoundsException e) {
       log.error("200개 초과");
       return new ResponseEntity<Object>("200개 초과", HttpStatus.CONFLICT);
